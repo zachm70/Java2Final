@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Books</title>
+</head>
+<body>
+<h3>View Books</h3>
+<form>
+<!-- table to hold members -->
+	<table>
+		<tr>
+<!-- 		tables headers -->
+			<th>BookId</th>
+			<th>Title</th>
+			<th>Author</th>
+		</tr>
+<!-- 		loops through passed in list -->
+		<tr th:each="book : ${b}">
+<!-- 		shows book id,title, and author of current book in list -->
+			<td th:text="${book.id}" />
+			<td th:text="${book.title}" />
+			<td th:text="${book.author}"/>
+		</tr>
+	</table>
+</form>
+	<a href="../addBook">Add Book</a><br />
+	<a href="index">Home</a>
+</body>
+</html>

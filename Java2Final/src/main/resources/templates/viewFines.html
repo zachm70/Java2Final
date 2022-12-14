@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Fines</title>
+</head>
+<body>
+	<form>
+		<table>
+			<tr th:each="members : ${currentMembers}">
+				<td th:text="${members.name}"/>
+				<td th:text="${members.fine}"/>
+		</table>
+	</form>
+	<h3>Total Fines: $<span th:id="fine" th:text="${totalFines}"></span></h3>
+	<a href="/viewAllMembers">View Members</a><br />
+	<a href="/index">Home</a>
+</body>
+</html>

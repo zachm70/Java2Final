@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add New Member</title>
+<script>
+	function inputValidation(){
+		var x = document.forms["myForm"]["name"].value;
+		var a = document.forms["myForm"]["address"].value;
+		var b = document.forms["myForm"]["city"].value;
+		var c = document.forms["myForm"]["fine"].value;
+		
+		
+		
+		if(x=="" || a =="" || b=="" || c==""){
+			alert("A field not filled in");
+			return false;
+		}
+		
+		if(isNaN(c)){
+			alert("Fine must be a number")
+			return false;
+		}
+		if(c < 0)
+		{
+			alert("Fine must be 0 or higher")
+			return false;
+		}
+
+	}
+</script>
+</head>
+<body>
+<h3>Add New Member</h3>
+<form th:object="${newMember}" th:action="@{/update/{id}(id=${newMember.id})}" method='POST' name="myForm" onsubmit="return inputValidation()">
+	Name:<input name="name" size="20" th:field="*{name}"> <br />
+	Address:<input name="address" size="20" th:field="*{address}"> <br />
+	City:<input name="city" size="20" th:field="*{city}"> <br />
+	Fine:<input name="fine" size="20" th:field="*{fine}"> <br />
+	<input name="submit" type="submit" value="submit" />
+</form>
+	<a href="../viewAllMembers">View All Members</a>
+</body>
+</html>

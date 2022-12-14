@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Members</title>
+</head>
+<body>
+<h3>View Members</h3>
+<form>
+	<table>
+	<tr>
+		<th>MemberId</th>
+		<th>Name</th>
+		<th>City</th>
+		<th>Address</th>
+		<th>Fines</th>
+	</tr>
+		<tr th:each="members : ${currentMembers}">
+			<td th:text="${members.id}" />
+			<td th:text="${members?.name}" />
+			<td th:text="${members.city}"/>
+			<td th:text="${members.address}" />
+			<td th:text="${members.fine}"/>
+			<td><a th:href="@{/edit/{id}(id=${members.id})}">Edit</a></td>
+		</tr>
+	</table>
+</form>
+	<a href="../viewAllFines">View Fines</a><br />
+	<a href="../addMember">Add Member</a> <br />
+	<a href="../index">Home</a>
+</body>
+</html>

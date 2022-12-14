@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Available Books</title>
+</head>
+<body>
+<form>
+	<table>
+		<tr th:each="books : ${currentBooks}">
+			<td th:text="${books.title}"/>
+			<td th:text="${books.author}"/>
+		</tr>
+	</table>
+</form>
+<a href="/viewAllBooks">View All Books</a>
+<a href="checkOutBook">Check Out Books</a>
+<a href="/index">Home</a>
+
+</body>
+</html>
